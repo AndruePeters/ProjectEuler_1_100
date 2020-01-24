@@ -1,0 +1,9 @@
+[requires]
+spdlog/[>=1.4.1]@bincrafters/stable
+fmt/6.0.0@bincrafters/stable 
+
+[generators]
+cmake
+cmake_find_package
+
+
