@@ -3,7 +3,11 @@ language: cpp
 cache: ccache
 os: linux
 
-compiler: clang-9
+compiler: "clang-9"
+
+cache:
+  directories:
+    - ${TRAVIS_BUILD_DIR}/build
 
 addons:
   apt:
