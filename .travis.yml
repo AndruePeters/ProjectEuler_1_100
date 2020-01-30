@@ -7,7 +7,7 @@ compiler: "clang-9"
 
 cache:
   directories:
-    - ${TRAVIS_BUILD_DIR}/build
+    - $HOME/.conan/data
 
 addons:
   apt:
