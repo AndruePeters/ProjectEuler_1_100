@@ -1,6 +1,8 @@
 [requires]
 spdlog/[>=1.4.1]@bincrafters/stable
 fmt/6.0.0@bincrafters/stable 
+gtest/1.8.1@bincrafters/stable
+benchmark/1.5.0@_/_
 
 [generators]
 cmake
