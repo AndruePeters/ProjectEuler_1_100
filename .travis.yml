@@ -1,13 +1,16 @@
 dist: bionic
 language: cpp
+cache: ccache
 os: linux
+
+compiler: clang-9
 
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - clang
+      - clang-9
       - cmake
       - python3
       - python3-pip
