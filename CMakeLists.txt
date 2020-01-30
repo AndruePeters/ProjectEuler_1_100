@@ -5,7 +5,7 @@ set (CMAKE_CXX_STANDARD 17)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_EXTENSIONS OFF)
 
-set (CMAKE_BUILD_TYPE Debug)
+set (CMAKE_BUILD_TYPE Release)
 
 # Add the external libraries
 
@@ -31,13 +31,23 @@ execute_process(COMMAND ${CONAN_CMD} remote list OUTPUT_VARIABLE CONAN_REMOTES)
 conan_add_remote(NAME bincrafters INDEX 1
     URL https://api.bintray.com/conan/bincrafters/public-conan)
 
+conan_add_remote(NAME conan_public INDEX 2
+    URL https://api.bintray.com/conan/conan/conan-center )
+
 conan_cmake_run(CONANFILE conanfile.txt
                 BASIC_SETUP
                 CONAN_COMMAND ${CONAN_CMD}
                 BUILD missing)
 
+# need this to force benchmark to compile
+# need to add bug
+set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_BINARY_DIR}")
+
 find_package(fmt)
 find_package(spdlog)
+find_package(benchmark)
+
+message ( "CMAKE_MODULE_PATH   : ${CMAKE_MODULE_PATH}")
 
 
 #####################################################################
@@ -47,7 +57,7 @@ find_package(spdlog)
 add_library(project_warnings INTERFACE)
 
 # Link this 'library' to set the c++ standard / compile-time options requested
-add_library(project_options INTERFACE)
+add_library(project_options INTERFACE )
 
 # Create the compile options
 target_include_directories(project_options INTERFACE include external/cxxopts/include)
@@ -81,6 +91,7 @@ target_compile_options(project_warnings
                                         # (ie printf)
                             -Wno-unknown-warning-option
                             -O3
+                            -std=c++17
                             )
 
 
