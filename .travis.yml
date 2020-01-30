@@ -3,7 +3,7 @@ language: cpp
 cache: ccache
 os: linux
 
-compiler: "clang-9"
+compiler: clang++-9
 
 cache:
   directories:
@@ -15,6 +15,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - clang-9
+      - g++-9
       - cmake
       - python3
       - python3-pip
