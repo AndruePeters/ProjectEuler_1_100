@@ -35,6 +35,8 @@ addons:
 
 install:
   - pip3 install --user conan conan_package_tools cmake urllib3
+  - TEMP_DEB="($mktemp)" && wget -O "$TEMP_DEB" 'https://launchpad.net/ubuntu/+archive/primary/+files/libtbb-dev_2018~U6-4_amd64.deb' && sudo dpkg -i "$TEMP_DEB"
+
 
 
 script:
