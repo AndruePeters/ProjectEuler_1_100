@@ -24,6 +24,7 @@ addons:
       - python3-setuptools
       - libtbb-dev
       - libtbb2
+      - libc++-dev
 
 
 
