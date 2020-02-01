@@ -41,4 +41,5 @@ script:
   - cmake . -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build -- -j2
   - mkdir logs
   - ./build/bin/ProjectEulerBenchmarks 
+  - (cd build; ctest -j2)
 
