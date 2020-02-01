@@ -7,6 +7,9 @@ set (CMAKE_CXX_EXTENSIONS OFF)
 
 set (CMAKE_BUILD_TYPE Release)
 
+include (CTest)
+
+
 # Add the external libraries
 
 #add_subdirectory (${CMAKE_SOURCE_DIR}/external)
@@ -46,6 +49,9 @@ set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_BINARY_DIR}")
 find_package(fmt)
 find_package(spdlog)
 find_package(benchmark)
+find_package(gtest REQUIRED)
+find_package(GTest REQUIRED)
+
 
 message ( "CMAKE_MODULE_PATH   : ${CMAKE_MODULE_PATH}")
 

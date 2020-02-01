@@ -30,9 +30,10 @@ int p1_rawloop_vector(const std::vector<int>& v)
 
 int p1_partial_sum_formula(const int upperBound)
 {
-    int sumMult3 = 3 * finite_sum(upperBound / 3);
-    int sumMult5 = 5* finite_sum(upperBound / 5);
-    int sumMult15 = 15 * finite_sum(upperBound / 15);
+    const int limit = upperBound - 1;
+    int sumMult3 = 3 * finite_sum(limit / 3);
+    int sumMult5 = 5* finite_sum(limit / 5);
+    int sumMult15 = 15 * finite_sum(limit / 15);
     return sumMult3 + sumMult5 - sumMult15;
 }
 
