@@ -50,40 +50,4 @@ static void BM_p1_partial_sum_formula(benchmark::State& state)
 }
 BENCHMARK(BM_p1_partial_sum_formula)->CUSTOM_RANGE;
 
-static void BM_p1_reduce_seq_vector(benchmark::State& state)
-{
-    auto vector = generateVector(static_cast<int>(state.range(0)));
-    for (auto _ : state) {
-        p1_reduce_seq_vector(vector);
-    }
-}
-BENCHMARK(BM_p1_reduce_seq_vector)->CUSTOM_RANGE;
-
-static void BM_p1_reduce_unseq_vector(benchmark::State& state)
-{
-    auto vector = generateVector(static_cast<int>(state.range(0)));
-    for (auto _ : state) {
-        p1_reduce_unseq_vector(vector);
-    }
-}
-BENCHMARK(BM_p1_reduce_unseq_vector)->CUSTOM_RANGE;
-
-static void BM_p1_reduce_par_vector(benchmark::State& state)
-{
-    auto vector = generateVector(static_cast<int>(state.range(0)));
-    for (auto _ : state) {
-        p1_reduce_par_vector(vector);
-    }
-}
-BENCHMARK(BM_p1_reduce_par_vector)->CUSTOM_RANGE;
-
-static void BM_p1_reduce_par_unseq_vector(benchmark::State& state)
-{
-    auto vector = generateVector(static_cast<int>(state.range(0)));
-    for (auto _ : state) {
-        p1_reduce_par_unseq_vector(vector);
-    }
-}
-BENCHMARK(BM_p1_reduce_par_unseq_vector)->CUSTOM_RANGE;
-
 #endif

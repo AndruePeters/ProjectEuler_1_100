@@ -22,30 +22,10 @@ int p1_loop(const int upperBound)
 int p1_rawloop_vector(const std::vector<int>& v)
 {
     int sum = 0;
-    for (int i = 0; i < v.size(); ++i) {
-        sum += v[i];
+    for (int i = 0; i < static_cast<int>(v.size()); ++i) { // I know there won't be a bound problem for my use case
+        sum += v[static_cast<std::size_t>(i)];
     }
     return sum;
-}
-
-int p1_reduce_seq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::seq, v.begin(), v.end());
-}
-
-int p1_reduce_unseq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::unseq, v.begin(), v.end());
-}
-
-int p1_reduce_par_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::par, v.begin(), v.end());
-}
-
-int p1_reduce_par_unseq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::par_unseq, v.begin(), v.end());
 }
 
 int p1_partial_sum_formula(const int upperBound)
@@ -58,7 +38,7 @@ int p1_partial_sum_formula(const int upperBound)
 
 std::vector<int> generateVector(const int upperBound)
 {
-    std::vector<int> v(upperBound);
+    std::vector<int> v(static_cast<size_t>(upperBound));
     std::iota(v.begin(), v.end(), 1);
     return v;
 }
