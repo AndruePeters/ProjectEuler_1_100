@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 
-TEST(Problem1, func_name)
+TEST(Problem1, SumOf3_5_Multiples)
 {
     EXPECT_EQ(p1_loop_constexpr(1000), 233168) << "Expected 233168."
     EXPECT_EQ(p1_rawloop_vector(1000), 233168) << "Expected 233168."
