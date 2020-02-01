@@ -40,26 +40,6 @@ int p1_partial_sum_formula(const int upperBound);
 int p1_rawloop_vector(const std::vector<int>& v);
 
 /**
- * @brief Uses std::reduce with sequential execution policy.
- */
-int p1_reduce_seq_vector(const std::vector<int>& v);
-
-/**
- * @brief Uses std::reduce with unsequential execution policy.
- */
-int p1_reduce_unseq_vector(const std::vector<int>& v);
-
-/**
- * @brief Uses std::reduce with parallel sequential execution policy.
- */
-int p1_reduce_par_vector(const std::vector<int>& v);
-
-/**
- * @brief Uses std::reduce with parallel unsequential execution policy.
- */
-int p1_reduce_par_unseq_vector(const std::vector<int>& v);
-
-/**
  * @brief Generates the vector.
  */
 std::vector<int> generateVector(const int upperBound);

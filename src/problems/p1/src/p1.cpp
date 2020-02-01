@@ -28,26 +28,6 @@ int p1_rawloop_vector(const std::vector<int>& v)
     return sum;
 }
 
-int p1_reduce_seq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::seq, v.begin(), v.end());
-}
-
-int p1_reduce_unseq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::unseq, v.begin(), v.end());
-}
-
-int p1_reduce_par_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::par, v.begin(), v.end());
-}
-
-int p1_reduce_par_unseq_vector(const std::vector<int>& v)
-{
-    return std::reduce(std::execution::par_unseq, v.begin(), v.end());
-}
-
 int p1_partial_sum_formula(const int upperBound)
 {
     int sumMult3 = 3 * finite_sum(upperBound / 3);
