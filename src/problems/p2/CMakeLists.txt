@@ -12,6 +12,7 @@ add_executable (p2_main src/p2_main.cpp)
 target_include_directories(p2_main  INTERFACE include)
 target_link_libraries(p2_main    PRIVATE     project_options
                                              project_warnings
+                                             external_dependencies
                                              fmt::fmt
                                              p2_lib
                      )
