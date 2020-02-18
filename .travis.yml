@@ -30,7 +30,7 @@ addons:
 
 
 install:
-  - pip3 install --user conan conan_package_tools  urllib3
+  - pip3 install --user conan conan_package_tools urllib3
   - TEMP_DEB="($mktemp)" && wget -O "$TEMP_DEB" 'https://launchpad.net/ubuntu/+archive/primary/+files/libtbb2_2018~U6-4_amd64.deb' && sudo dpkg -i "$TEMP_DEB"
   - rm -f "$TEMP_DEB"
   - TEMP_DEB="($mktemp)" && wget -O "$TEMP_DEB" 'https://launchpad.net/ubuntu/+archive/primary/+files/libtbb-dev_2018~U6-4_amd64.deb' && sudo dpkg -i "$TEMP_DEB"
@@ -40,6 +40,6 @@ install:
 script:
   - cmake . -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build -- -j2
   - mkdir logs
-  - ./build/bin/ProjectEulerBenchmarks 
+  - ./build/bin/ProjectEulerBenchmarks
   - (cd build; ctest -j2)
 
