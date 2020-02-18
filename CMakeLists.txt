@@ -49,8 +49,12 @@ set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_BINARY_DIR}")
 find_package(fmt)
 find_package(spdlog)
 find_package(benchmark)
+
+#both are required because of using conan
 find_package(gtest REQUIRED)
 find_package(GTest REQUIRED)
+
+find_package(Eigen3)
 
 
 message ( "CMAKE_MODULE_PATH   : ${CMAKE_MODULE_PATH}")
@@ -65,8 +69,18 @@ add_library(project_warnings INTERFACE)
 # Link this 'library' to set the c++ standard / compile-time options requested
 add_library(project_options INTERFACE )
 
+# Link this `library` for project includes
+
+# Link this `library` for external projects
+add_library(external_dependencies INTERFACE )
+target_include_directories(external_dependencies INTERFACE
+                            ${Eigen3_INCLUDE_DIR} )
+
+
 # Create the compile options
-target_include_directories(project_options INTERFACE include external/cxxopts/include)
+target_include_directories(project_options INTERFACE include 
+                            external/cxxopts/include
+                            )
 target_compile_options(project_warnings
                             INTERFACE
                             -Wall
@@ -76,14 +90,14 @@ target_compile_options(project_warnings
                             -Wnon-virtual-dtor # warn the user if a class with virtual functions has a
                                                 # non-virtual destructor. This helps catch hard to
                                                 # track down memory errors
-                            -Wold-style-cast # warn for c-style casts
+                            #-Wold-style-cast # warn for c-style casts // disable because of
                             -Wcast-align # warn for potential performance problem casts
                             -Wunused # warn on anything being unused
                             -Woverloaded-virtual # warn if you overload (not override) a virtual
                                                 # function
                             -Wpedantic # warn if non-standard C++ is used
-                            -Wconversion # warn on type conversions that may lose data
-                            -Wsign-conversion # warn on sign conversions
+                            #-Wconversion # warn on type conversions that may lose data
+                            #-Wsign-conversion # warn on sign conversions
                             -Wmisleading-indentation # warn if identation implies blocks where blocks
                                                     # do not exist
                             -Wduplicated-cond # warn if if / else chain has duplicated conditions
