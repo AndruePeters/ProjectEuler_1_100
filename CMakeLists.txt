@@ -73,8 +73,8 @@ add_library(project_options INTERFACE )
 
 # Link this `library` for external projects
 add_library(external_dependencies INTERFACE )
-target_include_directories(external_dependencies SYSTEM
-${Eigen3_INCLUDE_DIR} )
+target_include_directories(external_dependencies INTERFACE
+                            ${Eigen3_INCLUDE_DIR} )
 
 
 # Create the compile options
