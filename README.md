@@ -6,6 +6,8 @@ Solutions to the first 100 Project Euler problems.
         * `cmake -Bbuild`
         * `cmake --build build -- -j4`
     * Now, all binaries should be in build/bin
+    * Benchmark will be at build/bin/ProjectEulerBenchmarks
+    * Each problem will have an associated binary file at build/bin/px_main, where x is the problem number.
 
 ## Structure
     * Each problem has its folder
