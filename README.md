@@ -2,21 +2,21 @@
 Solutions to the first 100 Project Euler problems.
 
 ## Build System
-    * From root, run:
-        * `cmake -Bbuild`
-        * `cmake --build build -- -j4`
-    * Now, all binaries should be in build/bin
-    * Benchmark will be at build/bin/ProjectEulerBenchmarks
-    * Each problem will have an associated binary file at build/bin/px_main, where x is the problem number.
+* From root, run:
+    * `cmake -Bbuild`
+    * `cmake --build build -- -j4`
+* Now, all binaries should be in build/bin
+* Benchmark will be at **build/bin/ProjectEulerBenchmarks**
+* Each problem will have an associated binary file at **build/bin/px_main**, where x is the problem number.
 
 ## Structure
-    * Each problem has its folder
-    * The problem solution itself is compiled as a static library
-    * There is a benchmarks file associated with each problem.
-        * Each benchmarks file is included in the master at src/benchmark.cpp
-    * Each problem has a main associated to verify the output.
+* Each problem has its folder
+* The problem solution itself is compiled as a static library
+* There is a benchmarks file associated with each problem.
+    * Each benchmarks file is included in the master at src/benchmark.cpp
+* Each problem has a main associated to verify the output.
 
 ## Solved Problems
-    * Problem 1
-    * Problem 2
+* Problem 1
+* Problem 2
 
