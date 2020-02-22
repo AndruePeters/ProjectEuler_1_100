@@ -90,14 +90,29 @@ unsigned fib_golden_ratio(const unsigned n)
 unsigned fib_eigen_matrix_exp(const unsigned n)
 {
     using namespace Eigen;
-    Matrix2f matrix;
+    static Matrix2f fibMatrix = (Matrix2f() << 1, 1, 1, 0).finished();
+    static const Matrix2f baseMatrix = (Matrix2f() << 1, 1, 1, 0).finished();
+    static unsigned lastExp = 1;
 
-    matrix <<   1, 1,
-                1, 0;
-    auto powMatrix = matrix;
-    MatrixPower<Matrix2f> mPow(matrix);
-    mPow.compute(powMatrix, n-1);
-    return powMatrix(0, 0);
+    unsigned timesToMultiply = 0;
+
+    if (lastExp < n) {
+        timesToMultiply = n - lastExp - 1;
+    } else if (lastExp > n) {
+        fibMatrix << 1, 1, 1, 0;
+        timesToMultiply = n;
+    } else if (lastExp == n) {
+        return fibMatrix(0,0);
+    }
+
+    // multiply the matrix by the base, timesToMultiply times
+    // simulates exponentiating the base matrix, but saves the state
+    for (unsigned i = 0; i < timesToMultiply; ++i) {
+        fibMatrix = fibMatrix * baseMatrix;
+    }
+    
+    lastExp = n-1;
+    return fibMatrix(0, 0);
 }
 
 unsigned fib_eigen_matrix_exp_fast(const unsigned n)
@@ -133,8 +148,7 @@ unsigned fib_sum_golden_ratio(const unsigned fib_limit)
 
 unsigned fib_sum(const unsigned fib_limit, std::function<unsigned (unsigned)> fib_func)
 {
-    std::vector<unsigned> fib_values;
-    fib_values.reserve(1000);
+    unsigned sum = 0;
 
     // first even is 2, so start with that
     unsigned fib = 2;
@@ -147,10 +161,10 @@ unsigned fib_sum(const unsigned fib_limit, std::function<unsigned (unsigned)> fi
     // and then calculates the new one
     // after the new number is calculated, it's coompared within the while section
     while (fib < fib_limit) {
-        fib_values.push_back(fib);
+        sum += fib;
         fib = fib_func(i);
         i += 3;
     }
 
-    return std::reduce(fib_values.begin(), fib_values.end());
+    return sum;
 }
