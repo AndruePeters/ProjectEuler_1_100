@@ -1,9 +1,5 @@
-#ifndef P2_BENCHMARK_H
-#define P2_BENCHMARK_H
-
 #include <benchmark/benchmark.h>
 #include <p2.h>
-
 
 #define CUSTOM_RANGE_P2 Range(0, 30)
 
@@ -97,5 +93,3 @@ static void BM2_fib_sum_golden_ratio(benchmark::State& state)
         fib_sum_golden_ratio(fib);
     }
 } BENCHMARK(BM2_fib_sum_golden_ratio)->Range(8, 32000);
-
-#endif
