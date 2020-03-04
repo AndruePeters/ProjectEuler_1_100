@@ -1,5 +1,8 @@
+///
+/// @brief File that is used to setup benchmark_main() for gtest.
+/// Every problem benchmark file is linked against this.
+///
 #include <benchmark/benchmark.h>
-#include "problems/p1/include/p1_benchmark.h"
-#include "problems/p2/include/p2_benchmark.h"
+
 
 BENCHMARK_MAIN();
