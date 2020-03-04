@@ -11,9 +11,9 @@ Solutions to the first 100 Project Euler problems.
 
 ## Structure
 * Each problem has its folder
-* The problem solution itself is compiled as a static library
+* The problem solution itself is compiled as a shared library.
 * There is a benchmarks file associated with each problem.
-    * Each benchmarks file is included in the master at src/benchmark.cpp
+    * Benchmarks are compiled as shared libraries -- this reduces compile times for development.
 * Each problem has a main associated to verify the output.
 
 ## Solved Problems
