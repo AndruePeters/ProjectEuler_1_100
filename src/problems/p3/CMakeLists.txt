@@ -11,7 +11,7 @@ add_library (p3_benchmark SHARED src/p3_benchmark.cpp)
 target_include_directories(p3_benchmark  PUBLIC "include")
 target_link_libraries(p3_benchmark    PRIVATE   project_options
                                                 project_warnings
-                                                p3
+                                                
 )
 
 # Add the main exeucutable
