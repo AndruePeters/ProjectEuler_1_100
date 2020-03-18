@@ -1,21 +1,23 @@
 #include <p3.h>
 #include <spdlog/spdlog.h>
 
+#include <algorithm>
 #include <iostream>
+#include <random>
+#include <set>
+
+#include <boost/container/flat_map.hpp>
 
 int main()
 {
-    auto primes = primeSieve(1000);
+    unsigned long factorize = 600851475143;
+    auto factorMap = primeFactorization1(factorize);
 
-    auto primeFact = primeFactorization1(840);
+    const auto greatestFactor = std::max_element(factorMap.begin(), factorMap.end(), 
+    [](const std::pair<unsigned, unsigned>& p1, const std::pair<unsigned, unsigned>& p2) {
+        return p1.first > p2.second;
+    });
 
-    for (const auto pair: primeFact) {
-        std::cout << "(" << pair.first << ',' << pair.second << ")\n";
-    }
-
-    for (const auto prime : primes ) {
-        //std::cout << prime << ", ";
-    }
-
+    std::cout << "Greatest factor: " << greatestFactor->first << " appeared " << greatestFactor->second << " times.\n";
     return 0;
 }
