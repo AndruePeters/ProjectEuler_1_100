@@ -81,6 +81,8 @@ target_include_directories(external_dependencies INTERFACE
 target_include_directories(project_options INTERFACE include 
                             external/cxxopts/include
                             )
+target_link_options( project_options INTERFACE -flto )
+target_link_libraries( project_options INTERFACE tbb )
 target_compile_options(project_warnings
                             INTERFACE
                             -Wall
@@ -111,7 +113,14 @@ target_compile_options(project_warnings
                                         # (ie printf)
                             -Wno-unknown-warning-option
                             -O3
+                            -mllvm
+                            -polly
+                            -flto
+                            -Wpessimizing-move
+                            -march=native
                             -std=c++17
+                            -mavx2
+                            -Rpass-analysis=polly
                             )
 
 
