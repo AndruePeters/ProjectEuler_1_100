@@ -5,11 +5,11 @@ add_subdirectory (problems)
 
 # project_problems acts like static library of all project euler problems solved
 add_library (project_problems INTERFACE ) 
-target_link_libraries(project_problems INTERFACE p1 p2 )
+target_link_libraries(project_problems INTERFACE p1 p2 p3)
 
 # project_benchmarks acts like a static library of all project euler problem benchmarks
 add_library (project_benchmarks INTERFACE )
-target_link_libraries( project_benchmarks INTERFACE p1_benchmark p2_benchmark)
+target_link_libraries( project_benchmarks INTERFACE p1_benchmark p2_benchmark p3_benchmark)
 
 
 # these are all of the lovely benchmarks
