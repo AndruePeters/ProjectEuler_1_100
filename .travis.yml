@@ -41,6 +41,7 @@ install:
 
 
 script:
+  - cmake --version 
   - cmake . -Bbuild
   - cmake --build build -- -j2
   - mkdir logs
