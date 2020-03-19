@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1.2)
+cmake_minimum_required(VERSION 3.13)
 project(ProjectEuler)
 
 set (CMAKE_CXX_STANDARD 17)
@@ -81,7 +81,7 @@ target_include_directories(external_dependencies INTERFACE
 target_include_directories(project_options INTERFACE include 
                             external/cxxopts/include
                             )
-target_link_options( project_options INTERFACE -flto )
+#target_link_options( project_options INTERFACE -flto ) # Travis CI doesn't have a new enough cmake
 target_link_libraries( project_options INTERFACE tbb )
 target_compile_options(project_warnings
                             INTERFACE
@@ -115,7 +115,7 @@ target_compile_options(project_warnings
                             -O3
                             -mllvm
                             -polly
-                            -flto
+                            # -flto #commented out because Travis CI is old
                             -Wpessimizing-move
                             -march=native
                             -std=c++17
