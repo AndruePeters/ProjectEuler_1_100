@@ -12,7 +12,7 @@ Solutions to the first 100 Project Euler problems.
 
 ## Structure
 * There is a folder for each project, `px` where, x is the problem number
-* Every problem will have the following folder structure:
+* Every problem has the following folder structure:
     * `include/` : contains the headers related to solving the problem.
     * `src/` : contains the implentations, test, main, benchmark, and any other files needed.
     * `README.md` contains the problem prompt.
@@ -22,7 +22,6 @@ Solutions to the first 100 Project Euler problems.
     * `px_test` contains the GTest for the problem. It is linked to the CMake target, `ProjectEulerTests`. 
     * `px_benchmark` contains the Google Benchmark for the problem. it is linked to the CMake Target `ProjectEulerBenchmarks`
 * There will also always be a `px_main`, which is used to run a specific problem.
-* The problem solution itself is compiled as a shared library.
 
 ## Libraries
 * math_lib
