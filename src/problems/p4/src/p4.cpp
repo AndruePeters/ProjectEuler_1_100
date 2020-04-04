@@ -6,3 +6,14 @@
 ///
 
 #include <p4.h>
+
+#include <cmath>
+
+unsigned largest_3digit_palindrome_product()
+{
+    return largest_palindrome(3U);
+}
+
+
+
+
