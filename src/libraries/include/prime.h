@@ -18,6 +18,9 @@
 // Library includes
 #include <gen_math.h>
 
+#include <iostream>
+
+
 namespace math {
 ///
 /// \brief Generates a vector of prime numbers using the Sieve of Eratosthenes
@@ -71,7 +74,7 @@ std::vector<Integer> prime_sieve_sundaram(const Integer& limit)
 {
     /// this sieve generates primes under 2n + 2
     /// the uesr wants all primes up to limit, so we'll calculate a new limit
-    const Integer newLimit = static_cast<Integer>(std::floor(((limit) - 2) / 2));
+    const Integer newLimit = static_cast<Integer>(std::floor((limit - 2) / 2));
 
     // estimate the number of primes to be generated
     const Integer numPrimes = limit / static_cast<Integer>(std::log10(limit));
@@ -106,6 +109,7 @@ std::vector<Integer> prime_sieve_sundaram(const Integer& limit)
     return sieveList;
 }
 
+
 ///
 /// \brief Generates a vector of prime numbers using the Sieve of Atkin
 ///
@@ -114,7 +118,7 @@ std::vector<Integer> prime_sieve_atkin(const Integer& limit)
 {
     const Integer numPrimes = limit / static_cast<Integer>(std::log10(limit));
 
-    std::vector<Integer> results {2, 3, 5};
+    std::vector<Integer> results {2, 3 };
     results.reserve(numPrimes);
     std::vector<bool>   primeMarkings (limit, false); // false means composite, true means prime
 
@@ -126,12 +130,14 @@ std::vector<Integer> prime_sieve_atkin(const Integer& limit)
 
             const Integer n = (4 * i2) + j2;
             const Integer n2 = (3 * i2) + j2;
-            const Integer n3 = (3 * i2) + j2;
+            const Integer n3 = (3 * i2) - j2;
+
+            std::cout << "( " << n << ", " << n2 << ", " << n3 << ")\n";
             if (n <= limit && (n % 12 == 1 || n % 12 == 5)) {
                 primeMarkings[n] = !primeMarkings[n];
             }
 
-            if (n2 <= limit && n2 %12 == 7) {
+            if (n2 <= limit && n2 % 12 == 7) {
                 primeMarkings[n2] = !primeMarkings[n2];
             }
 
