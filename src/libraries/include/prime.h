@@ -31,14 +31,19 @@ namespace math {
 template <class Integer>
 std::vector<Integer> prime_sieve_eratosthenes(const Integer& limit)
 {
+    // estimate the number of primes less than limit
     const Integer numPrimes = limit / static_cast<Integer>(std::log10(limit));
-    std::vector<Integer> primes {Integer(2), Integer(3)};
+
+    // this vector stores the primes, preload with 2, 3, 5, and 7
+
+
+    std::vector<Integer> primes {Integer(2), Integer(3), Integer(5), Integer(7)};
     primes.reserve(numPrimes);
 
     const Integer five = 5;
     const Integer seven = 7;
 
-    for (Integer i = 1; i < limit; ++i) {
+    for (Integer i = 1; (6 * i) + 1 < limit; ++i) {
         const Integer n1 = (6 * i) - 1;
         const Integer n2 = (6 * i) + 1;
 
@@ -66,7 +71,7 @@ std::vector<Integer> prime_sieve_sundaram(const Integer& limit)
 {
     /// this sieve generates primes under 2n + 2
     /// the uesr wants all primes up to limit, so we'll calculate a new limit
-    const Integer newLimit = static_cast<Integer>(std::floor((limit) / 2)) - 2;
+    const Integer newLimit = static_cast<Integer>(std::floor(((limit) - 2) / 2));
 
     // estimate the number of primes to be generated
     const Integer numPrimes = limit / static_cast<Integer>(std::log10(limit));
@@ -92,7 +97,7 @@ std::vector<Integer> prime_sieve_sundaram(const Integer& limit)
 
     /// remove all extra 0's from the list
     sieveList.erase(std::remove_if(std::execution::seq, sieveList.begin(), sieveList.end(), 
-        [](const Integer n) { return n == 0; }),
+        [](const Integer n) { return n == 1; }),
         sieveList.end()
     );
     
