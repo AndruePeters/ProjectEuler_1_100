@@ -132,7 +132,6 @@ std::vector<Integer> prime_sieve_atkin(const Integer& limit)
             const Integer n2 = (3 * i2) + j2;
             const Integer n3 = (3 * i2) - j2;
 
-            std::cout << "( " << n << ", " << n2 << ", " << n3 << ")\n";
             if (n <= limit && (n % 12 == 1 || n % 12 == 5)) {
                 primeMarkings[n] = !primeMarkings[n];
             }
