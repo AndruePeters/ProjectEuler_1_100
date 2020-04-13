@@ -11,6 +11,6 @@
 
 int main()
 {
-
+    std::cout << "lcm(20): " << least_common_multiple<unsigned long long>(20) << std::endl;
     return 0;
 }
