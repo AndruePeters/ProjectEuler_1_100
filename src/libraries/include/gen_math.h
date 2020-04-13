@@ -6,6 +6,8 @@
 #ifndef DRUE_PROJECT_EULER_GENMATH_H_
 #define DRUE_PROJECT_EULER_GENMATH_H_
 
+#include <cmath>
+
 namespace math {
 ///
 /// \brief Constant time evaluation of the sum of integers from 1 to n
@@ -50,6 +52,13 @@ unsigned fibonacci(const unsigned n);
 /// I've kept this method mostly for benchmarking and a reminder for the future.
 unsigned fibonacci_memoization(const unsigned n);
 
+///
+/// \brief Returns log base b of x
+///
+double log_b(const double base, const double x)
+{
+    return std::log(x) / std::log(base);
+}
 
 } // namespace math
 
