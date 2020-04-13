@@ -22,6 +22,7 @@ add_library (p5_benchmark SHARED src/p5_benchmark.cpp)
 target_include_directories(p5_benchmark  PUBLIC "include")
 target_link_libraries(p5_benchmark    PRIVATE   project_options
                                                 project_warnings
+                                                math_lib
                                                 
 )
 
@@ -32,6 +33,7 @@ target_link_libraries(p5_test    PRIVATE      project_options
                                               project_warnings
                                               fmt::fmt
                                               p5
+                                              math_lib
                                               GTest::GTest
 )
 
@@ -43,6 +45,7 @@ target_link_libraries(p5_main    PRIVATE     project_options
                                              external_dependencies
                                              fmt::fmt
                                              p5
+                                             math_lib
                      )
 
 
