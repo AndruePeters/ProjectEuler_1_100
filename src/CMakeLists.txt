@@ -1,6 +1,6 @@
 # 
 # Andrue Peters
-# 3/25/20
+# 4/4/20
 #
 # This file is responsible for building the GTests and Benchmarks
 
@@ -10,15 +10,15 @@ add_subdirectory (problems)
 
 # project_problems acts like shared library of all libraries
 add_library (project_problems INTERFACE ) 
-target_link_libraries(project_problems INTERFACE p1 p2 p3 p4)
+target_link_libraries(project_problems INTERFACE p1 p2 p3 p4 p5)
 
 # project_benchmarks acts like a shared library of all project euler problem benchmarks
 add_library (project_benchmarks INTERFACE )
-target_link_libraries( project_benchmarks INTERFACE p1_benchmark p2_benchmark p3_benchmark p4_benchmark)
+target_link_libraries( project_benchmarks INTERFACE p1_benchmark p2_benchmark p3_benchmark p4_benchmark p5_benchmark)
 
 # project_tests acts like a shared library of all project euler tests
 add_library (project_tests INTERFACE )
-target_link_libraries( project_tests INTERFACE p1_test p2_test p3_test p4_test)
+target_link_libraries( project_tests INTERFACE p1_test p2_test p3_test p4_test p5_test)
 
 
 
